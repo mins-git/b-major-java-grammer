@@ -177,3 +177,31 @@ public class Person {
         this.age = age;
     }
 ```
+
+# 객체배열관리
+
+## 싱글턴 패턴 Singleton Pattern
+
+### 정의
+
+- 싱글턴 패턴을 따르는 클래스는 생성자가 여러 차례 호출이 되더라도 **실제로 생성되는 객체는 하나**.
+- 최초 생성 이후에 호출된 생성자는, 최초 생성자가 생성한 객체를 리턴
+
+### 구조
+
+```java
+// 1. 파일을 실행하면
+// 2. static 변수를 초기화한다.
+// 3. 초기화 과정에서 생성자 메서드를 호출한다.
+// 4. manager는 Manager 인스턴스 변수가 된다.
+// 5. 이후 다른 클래스에서 getManager()를 통해 manager에 접근만 할 수 있다.
+
+public class Manager {
+    private static Manager manager = new Manager(); // 초기화 
+    private Manager() {} // 생성자
+    
+    public static Manager getManager() { // getter
+        return manager;
+    }
+}
+```
